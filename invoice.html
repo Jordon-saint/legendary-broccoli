@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #7D7F7D;
+            padding: 20px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #C74D2D;
+        }
+
+        #invoiceContent {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            background-color: #C74D2D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: #A65E2E;
+        }
+    </style>
+    <script>
+window.onload = function() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; 
+    
+    const itemsList = document.getElementById('itemsList'); 
+    const totalAmount = document.getElementById('totalAmount'); 
+    
+    let total = 0;
+    
+  
+    for (let item of cart) {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        itemsList.appendChild(listItem);
+        total += item.price; 
+    }
+    
+    totalAmount.textContent = total.toFixed(2);
+};
+
+
+function cancelOrder() {
+    localStorage.removeItem('cart'); 
+    alert("Your order has been canceled.");
+    window.location.href = 'product.html';
+}
+
+function exitPage() {
+    window.location.href = 'index.html'; }
+        </script>
+</head>
+<body>
+
+<header>
+    <h1>Invoice</h1>
+</header>
+
+<div id="invoiceContent">
+    <h3>Items Purchased</h3>
+    <ul id="itemsList"></ul>
+    <h3>Total: $<span id="totalAmount">0.00</span></h3>
+
+    <div class="buttons">
+        <button onclick="cancelOrder()">Cancel Order</button>
+        <button onclick="exitPage()">Exit</button>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2024 Farmstead Flames. All rights reserved.</p>
+    <p><a href="about us.html">Learn more about us</a></p>
+</footer>
+</body>
+</html>

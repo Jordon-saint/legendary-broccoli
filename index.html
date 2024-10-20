@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>LOGIN</title>
+    <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+    font-family: 'Georgia', serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('Images/loginPage4.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+    background-color: #f9f5f1; 
+   
+    color: #4b3832; 
+}
+    
+    
+.login {
+    background: #eae0d5; 
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #a88b73; 
+    max-width: 400px;
+    width: 100%;
+    
+
+}
+
+label {
+    display: flex;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #dacb00; 
+    border-radius: 0px;
+    background-color: #e6e6d6; 
+}
+
+input[type="submit"] {
+    background-color: #a88b73; 
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #8c725f; 
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #000000; 
+}
+
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #a88b73;
+    box-shadow: 0 0 5px rgba(168, 139, 115, 0.5); 
+   
+}
+ 
+
+    </style>
+    <script>
+         var count = 1;
+        function validatePassword(event) {
+            event.preventDefault();
+            const username_ = 'jordon';
+            const password_ = 'Password123'; 
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+           
+if(count <= 3){
+        if(username_ === username){
+            if (password === password_ ) {
+                window.location.href = 'Product.html'; 
+                return;
+            } else {
+                message.textContent = 'Incorrect password. Please try again.';
+                message.style.color = 'red';
+                count++;
+                
+            }
+        }else{
+            message.textContent = 'Incorrect username. Please try again.';
+            message.style.color = 'red';
+            message.style.textDecoration = 'underline';
+            
+        }
+    }
+    if(count > 3){
+    window.location.href = 'Error.html';
+    }
+    }
+    </script>
+</head>
+<body>
+    
+    <div class="login">
+        <form onsubmit="validatePassword(event)">
+            <label for="username">USERNAME</label>
+            <input type="text" name="username" id="username" required><br>
+            <label for="password">PASSWORD</label>
+            <input type="password" name="password" id="password" required><br>
+            <input type="submit" name="credentials" id="credentials" value="Login">
+        </form>
+        <div id="message"></div>
+    </div>
+</body>
+
+
+</html>
+<!--
+/* Basic reset for styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f9f5f1; 
+    color: #4b3832; 
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background-color: #333333;
+    color: #F5F5DC; /* Ivory */
+}
+
+header h1 {
+    color: #D35400; /* Burnt Orange */
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Grid Layout for Products */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 40px;
+}
+
+.product-card {
+    background-color: #eae0d5;
+    border: 1px solid #a88b73; /* Border matching theme */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #a88b73;
+    padding-bottom: 10px;
+}
+
+.product-card h3 {
+    margin-top: 15px;
+    color: #333333; /* Charcoal Gray */
+}
+
+.product-card p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #D35400; /* Burnt Orange */
+}
+
+.product-card button {
+    background-color: #a88b73;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.product-card button:hover {
+    background-color: #8c725f;
+}
+
+/* Footer */
+footer {
+    background-color: #333333;
+    color: #F5F5DC;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+-->
